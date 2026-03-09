@@ -1,0 +1,32 @@
+<header class="site-header">
+  <div class="page-width">
+    <a href="{{ routes.root_url }}">
+      <span>{{ shop.name }}</span>
+    </a>
+
+    <nav>
+      <ul>
+        {% for link in linklists[section.settings.menu].links %}
+          <li>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,15 @@
+<footer class="site-footer">
+  <div class="page-width footer-inner">
+    <a href="{{ routes.root_url }}">{{ shop.name }} </a>
+    <p>
+      &copy; {{ 'now' | date: '%Y' -}}
+      {{- shop.name }}. All right reserved
+    </p>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer"
+}
+{% endschema %}
