@@ -1,0 +1,47 @@
+<section class="product-list">
+  <div class="page-width">
+    <h2>{{ section.settings.title }}</h2>
+    <div class="product-grid">
+      {% for product in collections[section.settings.collection].products limit:section.setttings.products_count %}
+        {% render 'product-card', product:product %}
+        {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+    "name":"Product List",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default":"Our Products"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection",
+        },
+        {
+          "type": "range",
+          "id": "products_count",
+          "label": "Number of products",
+          "min": 2,
+          "max": 12,
+          "step": 2,
+          "default":4
+        }
+    ],
+    "presets": [
+      {
+        "name": "Product List"
+      }
+    ]
+}
+
+
+
+
+{% endschema %}

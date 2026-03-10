@@ -1,15 +1,50 @@
-<div class="hero-section">
-    <div class="page-width">
-        <h2>{{ section.settings.title }}</h2>
-        <p> {{ section.settings.subtitle }}</p>
-
-        <button onclick="buttonUrl">{{ sections.settings.buttonLabel }}</button>
-        </div>
+<div class="hero-section" style="background-color:{{ section.settings.bg_color }}, color:{{ section.settings.text_color }}">
+  <div class="page-width">
+    <h2>{{ section.settings.title }}</h2>
+    <p>{{ section.settings.subtitle }}</p>
+    <a href="{{ section.settings.button_url }}" class="btn">{{ section.settings.button_label }}</a>
+  </div>
 </div>
 
 {% schema %}
-
-
-
-
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Welcome to our store"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Shop the latest collection"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#1B4F8A"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
 {% endschema %}

@@ -1,0 +1,38 @@
+<div class="product-page">
+    <div class="page-width product-page-inner">
+        <div class="product-images">
+            <img 
+                src="{{ product.featured_image | image_url: width:600 }}"
+                alt="{{ product.featured_image.alt | default: product.title }}"
+                width=""
+                height=""
+            >
+        </div>
+        <div class="product-info">
+            <h1>
+                {{ product.title }}
+            </h1>
+            <p class="price">
+                {{ product.price | money }}
+            </p>
+            <div class="product-description">
+                {{ product.description }}
+            </div>
+            <form method="post" action="/cart/add" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                <input type="hidden" name="return_to" value="/cart">
+                <button type="submit" class="btn" > Add to Cart</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+{% schema %}
+{
+    "name": "Product Detail"
+}
+
+{% endschema %}

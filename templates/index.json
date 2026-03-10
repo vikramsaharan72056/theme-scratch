@@ -1,13 +1,17 @@
 {
     "sections":{
+        "announcement":{
+            "type": "announcement-bar",
+            "settings":{}
+        },
         "hero":{
             "type": "hero",
             "settings": {}
         },
-        "product-list": {
-            "type": "product-list",
+        "product-list":{
+            "type":"product-list",
             "settings":{}
         }
     },
-    "order":["hero","product-list"]
+    "order":["announcement","hero","product-list"]
 }

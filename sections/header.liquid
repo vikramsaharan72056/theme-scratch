@@ -1,11 +1,11 @@
 <header class="site-header">
-  <div class="page-width">
+  <div class="page-width header-inner">
     <a href="{{ routes.root_url }}">
       <span>{{ shop.name }}</span>
     </a>
 
-    <nav>
-      <ul>
+    <nav class="header-nav">
+      <ul >
         {% for link in linklists[section.settings.menu].links %}
           <li>
             <a href="{{ link.url }}">{{ link.title }}</a>
@@ -13,6 +13,7 @@
         {% endfor %}
       </ul>
     </nav>
+    {%render 'icon-cart'%}
   </div>
 </header>
 

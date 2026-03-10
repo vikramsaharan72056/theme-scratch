@@ -1,0 +1,20 @@
+<div class="product-card">
+    <a href="{{ product.url }}">
+        <img
+            src="{{ product.featured_image |image_url: width: 400 }}"
+            alt="{{ product.featured_image.alt | default: product.title }}"
+            loading="lazy"
+            width=""
+            height=""
+        >
+    </a>
+    <div class="product-card-info">
+        <h3>
+            <a href="{{ product.url }}">{{ product.title }}</a>
+        </h3>
+        <p class="price">
+            {{ product.price | money }}
+        </p>
+
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="collection-page">
+  <div class="page-width">
+    <h1>{{ collection.title }}</h1>
+    <p>{{ collection.description }}</p>
+    <div class="product-grid">
+      {% for product in collection.products %}
+        {% render 'product-card', product: product %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+
+{
+    "name":"Collection Products"
+}
+
+{% endschema %}
