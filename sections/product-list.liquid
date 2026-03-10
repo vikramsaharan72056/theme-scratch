@@ -2,9 +2,20 @@
   <div class="page-width">
     <h2>{{ section.settings.title }}</h2>
     <div class="product-grid">
-      {% for product in collections[section.settings.collection].products limit:section.setttings.products_count %}
-        {% render 'product-card', product:product %}
+      {% assign products_count = section.settings.products_count | default: 4 %}
+      {% assign selected_collection = collections[section.settings.collection] %}
+
+      {% if selected_collection != blank and selected_collection.products_count > 0 %}
+        {% for product in selected_collection.products limit: products_count %}
+          {% render 'product-card', product: product %}
         {% endfor %}
+      {% elsif collections.all != blank and collections.all.products_count > 0 %}
+        {% for product in collections.all.products limit: products_count %}
+          {% render 'product-card', product: product %}
+        {% endfor %}
+      {% else %}
+        <p class="product-list-empty">No products found. Add products to a collection to show them here.</p>
+      {% endif %}
     </div>
   </div>
 </section>
@@ -22,7 +33,7 @@
         {
           "type": "collection",
           "id": "collection",
-          "label": "Collection",
+          "label": "Collection"
         },
         {
           "type": "range",
